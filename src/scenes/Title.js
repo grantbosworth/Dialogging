@@ -18,10 +18,7 @@ class Title extends Phaser.Scene {
         this.load.image('minerva', 'img/minerva.png');
         this.load.image('jove', 'img/jove.png');
         this.load.image('neptune', 'img/neptune.png');
-        this.load.spritesheet("Knight", "./assets/Knight.png", {frameWidth: 160, frameHeight: 160, startFrame: 0, endFrame: 1});
-        this.load.spritesheet("sporeMan", "./assets/sporeMan.png", {frameWidth: 250, frameHeight: 250, startFrame: 0, endFrame: 10});
-        this.load.image("rat", "./assets/rat.png");
-        this.load.image("amalgam", "./assets/amalgam.png");
+       
 
         // load bitmap font
         this.load.bitmapFont('gem_font', 'font/gem.png', 'font/gem.xml');

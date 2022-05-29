@@ -38,10 +38,10 @@ class Macbeth extends Phaser.Scene {
         this.OFFSCREEN_Y = 1000;
     }
     preload(){
-        this.load.spritesheet("Knight", "./assets/Knight.png", {frameWidth: 160, frameHeight: 160, startFrame: 0, endFrame: 1});
-        this.load.spritesheet("sporeMan", "./assets/sporeMan.png", {frameWidth: 250, frameHeight: 250, startFrame: 0, endFrame: 10});
-        this.load.image("rat", "./assets/rat.png");
-        this.load.image("amalgam", "./assets/amalgam.png");
+        this.load.spritesheet("Knight", "./assets/img/Knight.png", {frameWidth: 160, frameHeight: 160, startFrame: 0, endFrame: 1});
+        this.load.spritesheet("sporeMan", "./assets/img/sporeMan.png", {frameWidth: 250, frameHeight: 250, startFrame: 0, endFrame: 10});
+        this.load.image("rat", "./assets/img/rat.png");
+        this.load.image("amalgam", "./assets/img/amalgam.png");
     }
 
     create() {
