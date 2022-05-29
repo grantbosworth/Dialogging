@@ -1,6 +1,6 @@
-class Talking extends Phaser.Scene {
+class Macbeth extends Phaser.Scene {
     constructor() {
-        super("talkingScene");
+        super("macbethScene");
 
         // dialog constants
         this.DBOX_X = 0;			    // dialog box x-position
@@ -28,19 +28,26 @@ class Talking extends Phaser.Scene {
         this.nextText = null;			// player prompt text to continue typing
 
         // character variables
-        this.homer = null;
-        this.minerva = null;
-        this.neptune = null;
+        this.LADYMACBETH = null;
+        this.Doctor = null;
+        this.Gentlewoman = null;
         this.jove = null;
         this.tweenDuration = 500;
 
         this.OFFSCREEN_X = -500;        // x,y values to place characters offscreen
         this.OFFSCREEN_Y = 1000;
     }
+    preload(){
+        this.load.spritesheet("Knight", "./assets/Knight.png", {frameWidth: 160, frameHeight: 160, startFrame: 0, endFrame: 1});
+        this.load.spritesheet("sporeMan", "./assets/sporeMan.png", {frameWidth: 250, frameHeight: 250, startFrame: 0, endFrame: 10});
+        this.load.image("rat", "./assets/rat.png");
+        this.load.image("amalgam", "./assets/amalgam.png");
+    }
 
     create() {
+        
         // parse dialog from JSON file
-        this.dialog = this.cache.json.get('dialog');
+        this.dialog = this.cache.json.get('Macbeth');
         //console.log(this.dialog);
 
         // add dialog box sprite
@@ -51,10 +58,18 @@ class Talking extends Phaser.Scene {
         this.nextText = this.add.bitmapText(this.NEXT_X, this.NEXT_Y, this.DBOX_FONT, '', this.TEXT_SIZE);
 
         // ready the character dialog images offscreen
-        this.homer = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'homer').setOrigin(0, 1);
-        this.minerva = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'minerva').setOrigin(0, 1);
-        this.neptune = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'neptune').setOrigin(0, 1);
-        this.jove = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'jove').setOrigin(0, 1);
+        this.LADYMACBETH = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'sporeMan').setOrigin(0, 1);
+        this.Doctor = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'amalgam').setOrigin(0, 1);
+        this.Gentlewoman = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'rat').setOrigin(0, 1);
+        //this.jove = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'jove').setOrigin(0, 1);
+        // spore anim break this up into the attack and idle anims once coded!!!
+        this.anims.create({
+            key: "idleSpore",
+            frames: this.anims.generateFrameNumbers("sporeMan", {start: 0, end: 10}),
+            frameRate: 8,
+            repeat: -1
+        });
+        this.LADYMACBETH.anims.play("idleSpore");
 
         // input
         cursors = this.input.keyboard.createCursorKeys();
@@ -111,7 +126,7 @@ class Talking extends Phaser.Scene {
             }
             // make text box invisible
             this.dialogbox.visible = false;
-            this.scene.start("macbethScene");
+
         } else {
             // if not, set current speaker
             this.dialogSpeaker = this.dialog[this.dialogConvo][this.dialogLine]['speaker'];

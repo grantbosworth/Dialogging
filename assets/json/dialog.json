@@ -2,16 +2,26 @@
 	[
 		{
 			"speaker" : "homer",
-			"dialog" : "Tell me, O muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy.",
+			"dialog" : "Tell me, O muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy, where can I find the most delicious donut?",
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker" : "homer",
-			"dialog" : "Many cities did he visit, and many were the nations with whose manners and customs he was acquainted."
+			"speaker" : "neptune",
+			"dialog" : "to reach the sacred jelly donut you must travel the world in search of the city with no name where the water envelops all",
+			"newSpeaker" : "true"
+
+		},
+		{
+			"speaker" : "minerva",
+			"dialog" : "Many cities did he visit, and many were the nations with whose manners and customs he was acquainted.",
+			"newSpeaker" : "true"
+
 		},
 		{	
 			"speaker" : "homer",
-			"dialog" : "Moreover he suffered much by sea while trying to save his own life and bring his men safely home."
+			"dialog" : "Moreover he suffered much by sea while trying to save his own life and bring his men safely home.",
+			"newSpeaker" : "true"
+
 		},
 		{	
 			"speaker" : "homer",
